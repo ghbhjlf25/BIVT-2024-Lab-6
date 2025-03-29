@@ -12,8 +12,8 @@ namespace Lab_6
             private double _secondJump;
 
             //Свойства
-            public string Surname => _surname ?? string.Empty;
-            public string Name => _name ?? string.Empty;
+            public string Surname => _surname;
+            public string Name => _name;
             public double FirstJump => _firstJump;
             public double SecondJump => _secondJump;
             public double BestJump => Math.Max(_firstJump, _secondJump);
@@ -44,20 +44,17 @@ namespace Lab_6
             public static void Sort(Participant[] participants)
             {
                 if (participants == null || participants.Length == 0) return;
-
-                bool swapped;
                 for (int i = 0; i < participants.Length - 1; i++)
                 {
-                    swapped = false;
                     for (int j = 0; j < participants.Length - 1 - i; j++)
                     {
                         if (participants[j].BestJump < participants[j + 1].BestJump)
                         {
-                            (participants[j], participants[j + 1]) = (participants[j + 1], participants[j]);
-                            swapped = true;
+                            Participant temp = participants[j];
+                            participants[j] = participants[j + 1];
+                            participants[j + 1] = temp;
                         }
                     }
-                    if (!swapped) break;
                 }
             }
 

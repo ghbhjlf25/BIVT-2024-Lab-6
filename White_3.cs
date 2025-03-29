@@ -12,8 +12,8 @@ namespace Lab_6
             private int _skipped;
 
             //Свойства
-            public string Surname => _surname ?? string.Empty;
-            public string Name => _name ?? string.Empty;
+            public string Surname => _surname;
+            public string Name => _name;
             public int Skipped => _skipped;
             public double AvgMark
             {
@@ -56,20 +56,17 @@ namespace Lab_6
             public static void SortBySkipped(Student[] students)
             {
                 if (students == null || students.Length == 0) return;
-
-                bool swapped;
                 for (int i = 0; i < students.Length - 1; i++)
                 {
-                    swapped = false;
                     for (int j = 0; j < students.Length - 1 - i; j++)
                     {
                         if (students[j].Skipped < students[j + 1].Skipped)
                         {
-                            (students[j], students[j + 1]) = (students[j + 1], students[j]);
-                            swapped = true;
+                            Student temp = students[j];
+                            students[j] = students[j + 1];
+                            students[j + 1] = temp;
                         }
                     }
-                    if (!swapped) break;
                 }
             }
 

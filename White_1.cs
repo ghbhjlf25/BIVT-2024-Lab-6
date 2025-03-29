@@ -12,8 +12,8 @@ namespace Lab_6
             private double _secondJump;
             
             //Свойства
-            public string Surname => _surname ?? string.Empty;
-            public string Club => _club ?? string.Empty;
+            public string Surname => _surname;
+            public string Club => _club;
             public double FirstJump => _firstJump;
             public double SecondJump => _secondJump;
             public double JumpSum => _firstJump + _secondJump;
@@ -57,7 +57,8 @@ namespace Lab_6
                         }
                     }
                 }
-            
+            }
+
             //Метод для вывода
             public void Print()
             {
