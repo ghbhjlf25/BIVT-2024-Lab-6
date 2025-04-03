@@ -18,7 +18,7 @@ namespace Lab_6
             {
                 get
                 {
-                    if (_scores == null) return Array.Empty<double>();
+                    if (_scores == null) return default(double[]);
                     double[] copy = new double[_scores.Length];
                     Array.Copy(_scores, copy, _scores.Length);
                     return copy;
